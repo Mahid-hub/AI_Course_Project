@@ -1,5 +1,5 @@
 import { FaRobot, FaStar, FaPlay } from "react-icons/fa";
-import MovieCards from "./Components/MovieCards";
+import MovieCards from "./Components/MovieCards.jsx";
 import NavBar from "./Components/NavBar.jsx";
 import Footer from "./Components/Footer.jsx";
 
