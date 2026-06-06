@@ -1,13 +1,27 @@
-import Button from "./Button";
+import { FaStar } from "react-icons/fa";
+import Button from "./Button.jsx";
 
-function MovieCards({ imageSrc, movieName }) {
+function MovieCards({ imageSrc, movieName, rating }) {
+    const TMDB_BASE = "https://image.tmdb.org/t/p/w500";
+
+    // Determine final image source:
+    // - falsy -> use local placeholder
+    // - absolute URL or data URI -> use as-is
+    // - leading slash (TMDB relative path) -> prepend TMDB base
+    let src = imageSrc || "/Bg.jpg";
+    if (src && !src.startsWith("http") && !src.startsWith("data:") && src.startsWith("/")) {
+        src = TMDB_BASE + src;
+    }
+
+    const displayRating = typeof rating === "number" ? rating : 0;
+
     return (
         <div className="w-64 bg-zinc-900 rounded-2xl overflow-hidden shadow-lg hover:scale-95 transition-all duration-300 cursor-pointer">
 
             {/* Movie Image */}
             <div className="h-58 overflow-hidden">
                 <img
-                    src={imageSrc}
+                    src={src}
                     alt={movieName}
                     className="w-full h-full object-cover"
                 />
@@ -19,15 +33,15 @@ function MovieCards({ imageSrc, movieName }) {
                     {movieName}
                 </h2>
 
-                <p className="text-zinc-400 text-sm mt-1">
-                    AI Recommended Movie
-                </p>
-
                 {/* Rating + Button */}
                 <div className="flex items-center justify-between mt-4">
-                    <span className="text-yellow-400 font-semibold">
-                        ⭐ 8.5
-                    </span>
+                    <div className="flex items-center gap-2">
+                        <FaStar className="text-yellow-400 text-lg" />
+                        <span className="font-semibold text-yellow-400">
+                            {displayRating.toFixed(1)}
+                        </span>
+                        <span className="text-gray-400 text-sm">/10</span>
+                    </div>
 
                     <Button bgClr="bg-red-500" bgHover="hover:bg-red-600" textClr="text-white" text="Watch" />
                 </div>
