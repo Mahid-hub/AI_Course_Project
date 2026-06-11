@@ -24,7 +24,7 @@ function RecommendationPage() {
                 mood: mood,
                 language: "en",
                 rating: 6.5,
-                top_n: 8,
+                top_n: 16,
             });
             setMovies(data || []);
         }
@@ -118,24 +118,26 @@ function RecommendationPage() {
                 <div className="mt-14">
 
                     {loading && (
-                        <div className="text-center text-xl py-10">
+                        <div className="text-center text-xl font-bold py-10">
                             Finding perfect movies...
                         </div>
                     )}
 
-                    <div className="flex items-center gap-4 mb-10">
-                        <FaStar className="text-yellow-400 text-3xl" />
-                        <h2 className="text-4xl font-bold">
-                            Top Picks For You
-                        </h2>
-                    </div>
+                    {!loading && movies.length > 0 && (
+                        <div className="flex items-center gap-4 mb-10">
+                            <FaStar className="text-yellow-400 text-3xl" />
+                            <h2 className="text-4xl font-bold">
+                                Top Picks For You
+                            </h2>
+                        </div>
+                    )}
 
                     <div className="grid grid-cols-4 gap-10">
 
                         {movies.map((movie, index) => (
                             <div key={index}>
                                 <MovieCards
-                                    imageSrc={movie.poster_path || movie.poster}
+                                    imageSrc={movie.poster_path}
                                     movieName={movie.title}
                                     rating={movie.vote_average}
                                 />

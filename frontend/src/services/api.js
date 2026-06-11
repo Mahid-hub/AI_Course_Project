@@ -37,33 +37,6 @@ export const getRecommendations = async (params) => {
 };
 
 /**
- * Fetch trending movies
- * @param {Object} params - Optional parameters
- * @param {number} params.limit - Number of movies to fetch (default: 10)
- * @returns {Promise<Array>} Array of trending movies
- */
-export const getTrendingMovies = async (params = {}) => {
-    try {
-        const limit = params.limit || 10;
-        const response = await fetch(`${API_BASE_URL}/api/trending?limit=${limit}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error("Error fetching trending movies:", error);
-        throw error;
-    }
-};
-
-/**
  * Fetch top-rated movies
  * @param {Object} params - Optional parameters
  * @param {number} params.limit - Number of movies to fetch (default: 10)
@@ -86,30 +59,6 @@ export const getTopRatedMovies = async (params = {}) => {
         return await response.json();
     } catch (error) {
         console.error("Error fetching top-rated movies:", error);
-        throw error;
-    }
-};
-
-/**
- * Health check - verify backend is running
- * @returns {Promise<Object>} Backend status
- */
-export const healthCheck = async () => {
-    try {
-        const response = await fetch(`${API_BASE_URL}/`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error("Error with health check:", error);
         throw error;
     }
 };

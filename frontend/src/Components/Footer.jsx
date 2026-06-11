@@ -71,7 +71,7 @@ function Footer() {
 
             {/* Bottom line */}
             <div className="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-5">
-                © 2026 CineAI. All rights reserved.
+                Developed as an AI Semester Project | © 2026 CineAI. All rights reserved.
             </div>
 
         </footer>

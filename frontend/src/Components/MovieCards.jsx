@@ -16,7 +16,7 @@ function MovieCards({ imageSrc, movieName, rating }) {
     const displayRating = typeof rating === "number" ? rating : 0;
 
     return (
-        <div className="w-64 bg-zinc-900 rounded-2xl overflow-hidden shadow-lg hover:scale-95 transition-all duration-300 cursor-pointer">
+        <div className="w-64 bg-zinc-900 rounded-2xl overflow-hidden shadow-lg hover:scale-95 hover:outline-red-500 hover:outline-1 transition-all duration-300">
 
             {/* Movie Image */}
             <div className="h-58 overflow-hidden">
@@ -43,7 +43,12 @@ function MovieCards({ imageSrc, movieName, rating }) {
                         <span className="text-gray-400 text-sm">/10</span>
                     </div>
 
-                    <Button bgClr="bg-red-500" bgHover="hover:bg-red-600" textClr="text-white" text="Watch" />
+                    {/* <Button
+                        bgClr="bg-red-500"
+                        bgHover="hover:bg-red-600"
+                        textClr="text-white"
+                        text="Watch"
+                    /> */}
                 </div>
             </div>
         </div>

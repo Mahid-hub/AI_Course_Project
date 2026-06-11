@@ -56,7 +56,7 @@ function HomePage() {
                                         bgClr="bg-transparent border border-white"
                                         bgHover="hover:bg-white hover:text-black"
                                         textClr="text-white"
-                                        text="Watch Trailers"
+                                        text="Watch Movies"
                                     />
                                 </Link>
                             </div>
