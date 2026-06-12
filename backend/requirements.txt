@@ -4,5 +4,6 @@ groq
 python-dotenv
 gunicorn
 joblib
+dill
 scikit-learn
 pandas
