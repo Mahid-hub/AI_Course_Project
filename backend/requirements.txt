@@ -3,3 +3,6 @@ flask-cors
 groq
 python-dotenv
 gunicorn
+joblib
+scikit-learn
+pandas
